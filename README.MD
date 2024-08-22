@@ -2,6 +2,8 @@
 
 This project is a RESTful CRUD application built using Spring Boot. The application implements standard RESTful practices and follows a layered architecture.
 
+This was developed as part of the [Building a REST API with Spring Boot](https://spring.academy/courses/building-a-rest-api-with-spring-boot) course from Spring Academy.
+
 ## Key Features
 
 - **HTTP Methods**: Implemented RESTful operations using `GET`, `PUT`, `PATCH`, and `POST`.
