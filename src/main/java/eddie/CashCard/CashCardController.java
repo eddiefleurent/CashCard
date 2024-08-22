@@ -12,7 +12,6 @@ import java.net.URI;
 import java.security.Principal;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/cashcards")
 class CashCardController {
@@ -59,7 +58,7 @@ class CashCardController {
                                              Principal principal) {
         CashCard cashCard = findCashCard(requestedId, principal);
         if (cashCard != null) {
-            CashCard updatedCashCard = new CashCard(cashCard.id(), cashCardUpdate.amount(), principal.getName());
+            CashCard updatedCashCard = new CashCard(requestedId, cashCardUpdate.amount(), principal.getName());
             cashCardRepository.save(updatedCashCard);
             return ResponseEntity.noContent().build();
         }
@@ -68,5 +67,14 @@ class CashCardController {
 
     private CashCard findCashCard(Long requestedId, Principal principal) {
         return cashCardRepository.findByIdAndOwner(requestedId, principal.getName());
+    }
+
+    @DeleteMapping("/{id}")
+    private ResponseEntity<Void> deleteCashCard(@PathVariable Long id, Principal principal) {
+        if (cashCardRepository.existsByIdAndOwner(id, principal.getName())) {
+            cashCardRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 }
