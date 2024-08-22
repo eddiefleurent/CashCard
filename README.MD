@@ -4,6 +4,8 @@ This project is a RESTful CRUD application built using Spring Boot. The applicat
 
 This was developed as part of the [Building a REST API with Spring Boot](https://spring.academy/courses/building-a-rest-api-with-spring-boot) course from Spring Academy.
 
+Family Cash Card is an app for families to manage allowances in the form of digital debit cards.
+
 ## Key Features
 
 - **HTTP Methods**: Implemented RESTful operations using `GET`, `PUT`, `PATCH`, and `POST`.
